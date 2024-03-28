@@ -50,21 +50,17 @@
 // CRUD WITH FILE SYSTEM
 
 
-const fs =require('fs') 
-const path = require('path')  
 
-const dirPath = path.join(__dirname,'crud');
-const filePath = `${dirPath}/myworld.txt`;
-
-// create file
-fs.writeFileSync(filePath,'this is my good file')        ////it will create file in given path folder
-
-
-/////read file 
-
-fs.readFile(filePath,'utf8',(err,item)=>{                 ////////it will read file 
-  console.log(item)
-})
 
 /////Delete file method 
+
+
+
+
+
+
+///append method 
+fs.appendFile(filePath,"this is awosome file",(err)=>{
+  if(!err) console.log("file updated")
+})
 
