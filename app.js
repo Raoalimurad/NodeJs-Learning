@@ -50,9 +50,21 @@
 // CRUD WITH FILE SYSTEM
 
 
+const fs =require('fs') 
+const path = require('path')  
+
+// const dirPath = path.join(__dirname,'crud');
+// const filePath = `${dirPath}/myworld.txt`;
+
+// // create file
+// fs.writeFileSync(filePath,'this is my good file')        ////it will create file in given path folder
 
 
-/////Delete file method 
+// /////read file 
+
+// fs.readFile(filePath,'utf8',(err,item)=>{                 ////////it will read file 
+//   console.log(item)
+// })
 
 
 
@@ -60,7 +72,16 @@
 
 
 ///append method 
-fs.appendFile(filePath,"this is awosome file",(err)=>{
-  if(!err) console.log("file updated")
-})
+// fs.appendFile(filePath,"this is awosome file",(err)=>{
+//   if(!err) console.log("file updated")
+// })
 
+
+///rename method
+// fs.rename(filePath,`${dirPath}/hello.txt`,(err)=>{
+//   if(!err) console.log('name change')
+// })
+
+/////Delete file method 
+
+fs.unlinkSync(filePath)
