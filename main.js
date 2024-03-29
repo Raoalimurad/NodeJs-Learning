@@ -55,30 +55,44 @@ const filePath = path.join(__dirname, "files")
 
 ///remove extensions from url means .html etc not show
 
-app.get('',(req,res)=>{
-   res.sendFile(`${filePath}/index.html`)
-})
+// app.get('',(req,res)=>{
+//    res.sendFile(`${filePath}/index.html`)
+// })
 
-app.get('/about', (req, res) => {
-    res.sendFile(`${filePath}/about.html`)
+// app.get('/about', (req, res) => {
+//     res.sendFile(`${filePath}/about.html`)
+// })
+// app.listen('3000')
+
+
+// app.get('/help', (req, res) => {
+//     res.sendFile(`${filePath}/help.html`)
+// })
+
+
+
+
+// //////how to show 404 page 
+
+// app.get('*', (req, res) => {
+//     res.sendFile(`${filePath}/noPageFound.html`)
+// })
+
+
+// TEMPLATE ENGINE:
+app.set('view engine','ejs')
+
+
+
+app.get('/profile', (req, res) => {
+    const user ={
+        name:"alimurad",
+        email:"raoalimurad52@gmail.com",
+        city:"karachi"
+    }
+    res.render('profile',{user})
 })
 app.listen('3000')
-
-
-app.get('/help', (req, res) => {
-    res.sendFile(`${filePath}/help.html`)
-})
-
-
-
-
-//////how to show 404 page 
-
-app.get('*', (req, res) => {
-    res.sendFile(`${filePath}/noPageFound.html`)
-})
-
-
 
 
 
