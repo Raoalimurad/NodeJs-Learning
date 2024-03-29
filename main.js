@@ -23,7 +23,7 @@
 //             name:"raoali",
 //             email:'raoalimurad@gmail.com'
 //         })
-   
+
 //     })
 //     app.listen('3000')
 
@@ -34,15 +34,64 @@
 //         `;
 //         res.send(pageContent);
 //     });
-    
+
 // 29/3/2024
 /////making static pages 
 
 const express = require('express')
 const path = require("path")
 const app = express()
-const filePath = path.join(__dirname,"files")
-console.log(filePath)
+const filePath = path.join(__dirname, "files")
 
-app.use(express.static(filePath))
+// console.log(filePath) ////to check file path 
+
+/////make sataic pages here
+
+// app.use(express.static(filePath))
+// app.listen('3000')
+
+
+
+
+///remove extensions from url means .html etc not show
+
+app.get('',(req,res)=>{
+   res.sendFile(`${filePath}/index.html`)
+})
+
+app.get('/about', (req, res) => {
+    res.sendFile(`${filePath}/about.html`)
+})
 app.listen('3000')
+
+
+app.get('/help', (req, res) => {
+    res.sendFile(`${filePath}/help.html`)
+})
+
+
+
+
+//////how to show 404 page 
+
+app.get('*', (req, res) => {
+    res.sendFile(`${filePath}/noPageFound.html`)
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
