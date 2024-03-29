@@ -35,7 +35,8 @@
 //         res.send(pageContent);
 //     });
     
-
+// 29/3/2024
+/////making static pages 
 
 const express = require('express')
 const path = require("path")
