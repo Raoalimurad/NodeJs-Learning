@@ -103,6 +103,35 @@ const filePath = path.join(__dirname, "files")
 
 // MIDDLEWARE
 
+////APPLICTION LEVEL MIDDLEWARE
+
+// const reqFilter = (req,resp,next)=>{
+//     if(!req.query.age){
+//         resp.send('enter your age')
+//     }else{
+
+//         next();
+//     }
+
+// }
+
+// app.use(reqFilter)
+// app.get('',(req,res)=>{
+// res.send('this is home page')
+// })
+// app.get('/about',(req,res)=>{
+//     res.send('this is about page')
+//     })
+// app.get('/contact',(req,res)=>{
+//     res.send('this is contact page')
+//     })
+// app.listen('3000')
+
+
+
+// ROUTE LEVEL MIDDLEWARE
+
+
 const reqFilter = (req,resp,next)=>{
     if(!req.query.age){
         resp.send('enter your age')
@@ -111,25 +140,35 @@ const reqFilter = (req,resp,next)=>{
         next();
     }
 
-}
+}      //////you can also make file of middleware middleware.js  module.exports = reqfileter code
 
-app.use(reqFilter)
-app.get('',(req,res)=>{
-res.send('this is home page')
-})
-app.get('/about',(req,res)=>{
-    res.send('this is about page')
+// app.get('',(req,res)=>{
+// res.send('this is home page')
+// })
+// app.get('/about',reqFilter,(req,res)=>{         ////APPLY MIDDLEWARE ON SPECIFIC PATH
+//     res.send('this is about page')
+//     })
+// app.get('/contact',(req,res)=>{
+//     res.send('this is contact page')
+//     })
+// app.listen('3000')
+
+
+///// use router
+const route = express.Router()
+route.use(reqFilter)
+
+
+app.get('/',(req,res)=>{
+    res.send('this is home page')
     })
-app.get('/contact',(req,res)=>{
-    res.send('this is contact page')
-    })
-app.listen('3000')
+   
 
-
-
-
-
-
+ route.get('/contact',(req,res)=>{
+        res.send('this is contact page')
+        })
+app.use('/',route)
+    app.listen('3000')
 
 
 
