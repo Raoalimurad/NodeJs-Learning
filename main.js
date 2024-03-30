@@ -80,20 +80,50 @@ const filePath = path.join(__dirname, "files")
 
 
 // TEMPLATE ENGINE:
-app.set('view engine','ejs')
+// app.set('view engine','ejs')
 
 
 
-app.get('/profile', (req, res) => {
-    const user ={
-        name:"alimurad",
-        email:"raoalimurad52@gmail.com",
-        city:"karachi"
+// app.get('/profile', (req, res) => {
+//     const user ={
+//         name:"alimurad",
+//         email:"raoalimurad52@gmail.com",
+//         city:"karachi",
+//         skills:['c','java','php','javascript']
+//     }
+//     res.render('profile',{user})
+// })
+// app.listen('3000')
+
+// app.get('/login',(req,res)=>{
+// res.render('login')
+// })
+
+
+
+// MIDDLEWARE
+
+const reqFilter = (req,resp,next)=>{
+    if(!req.query.age){
+        resp.send('enter your age')
+    }else{
+
+        next();
     }
-    res.render('profile',{user})
-})
-app.listen('3000')
 
+}
+
+app.use(reqFilter)
+app.get('',(req,res)=>{
+res.send('this is home page')
+})
+app.get('/about',(req,res)=>{
+    res.send('this is about page')
+    })
+app.get('/contact',(req,res)=>{
+    res.send('this is contact page')
+    })
+app.listen('3000')
 
 
 

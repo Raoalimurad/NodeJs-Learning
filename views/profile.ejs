@@ -6,8 +6,17 @@
     <title>Profile Page</title>
 </head>
 <body>
+    <h1><%- include('common/header')     %></h1>
     <h1>Welcome <%= user.name %></h1>
     <h1>Welcome <%= user.email %>, <%= user.city %></h1>
+    <h3>
+        <ul>
+            <% user.skills.forEach((item) => { %>
+                <li><%= item %></li> <!-- Output each item in the list -->
+            <% }); %>
+        </ul>
+    </h3>
+    
     
 </body>
 </html>
