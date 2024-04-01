@@ -1,7 +1,7 @@
 const dbConnect = require('./connection')
 async function readData(){
-    let result =await dbConnect()
-    let response =await result.find({name:'oppo'}).toArray()
-    console.log(response)
+    let data =await dbConnect()
+    let result =await data.find({name:'oppo'}).toArray()
+    console.log(result)
 }
 readData()

@@ -3,13 +3,13 @@ const dbConnect = require('./connection')
 
 ////insert one data
 const insertData = async()=>{
-    let result = await dbConnect();
-    let response =await result.insertOne({
+    let data = await dbConnect();
+    let result =await data.insertOne({
         name:"vivo",
         brand:"south_east",
         price:300
     })
-    if( response.acknowledged){
+    if( result.acknowledged){
         console.log("data inserted successfully")
     }
 }
