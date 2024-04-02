@@ -1,4 +1,4 @@
-const dbConnect = require('./connection')
+const dbConnect = require('../connection')
 async function readData(){
     let data =await dbConnect()
     let result =await data.find({name:'oppo'}).toArray()

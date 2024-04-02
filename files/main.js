@@ -154,21 +154,21 @@ const reqFilter = (req,resp,next)=>{
 // app.listen('3000')
 
 
-///// use router
-const route = express.Router()
-route.use(reqFilter)
+// ///// use router
+// const route = express.Router()
+// route.use(reqFilter)
 
 
-app.get('/',(req,res)=>{
-    res.send('this is home page')
-    })
+// app.get('/',(req,res)=>{
+//     res.send('this is home page')
+//     })
    
 
- route.get('/contact',(req,res)=>{
-        res.send('this is contact page')
-        })
-app.use('/',route)
-    app.listen('3000')
+//  route.get('/contact',(req,res)=>{
+//         res.send('this is contact page')
+//         })
+// app.use('/',route)
+//     app.listen('3000')
 
 
 
