@@ -27,7 +27,7 @@ app.delete('/delete/:_id',async(req,res)=>{
     res.send(data)
 })
 
-
+ 
 
 ///////update API
 
@@ -38,6 +38,16 @@ app.put('/update/:name',async(req,res)=>{
         req.params,{$set:req.body}
         )
     res.send(data)
+})
+
+///searach API
+app.get('/search/:key',async (req,res)=>{
+    let data = await product.find(
+        {
+            '$or':[{"name":{$regex:req.params.key}}]
+        }
+    )
+   res.send(data)
 })
 
 
